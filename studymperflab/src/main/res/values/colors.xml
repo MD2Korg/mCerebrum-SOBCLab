@@ -3,6 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="backgroundlight">#131325</color>
-    <color name="backgrounddark">#1e2c3c</color>
+    <color name="colorBackground">#154360</color>
+    <color name="tealsecondary">#00838F</color>
+    <color name="backGroundDark">#1e2c3c</color>
+    <color name="headerTeal">#16A085</color>
+    <color name="colorbackground">#131325</color>
+    <color name="fontPrimanry">#ffff</color>
 </resources>

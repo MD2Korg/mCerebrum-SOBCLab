@@ -21,7 +21,7 @@ public class FragmentDataQuality extends Fragment{
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
 
-        View view=inflater.inflate(R.layout.top_fragment, container, false);
+        View view=inflater.inflate(R.layout.fragment_data_quality, container, false);
 
         return view;
     }

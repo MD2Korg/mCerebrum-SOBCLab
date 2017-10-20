@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorbackground"
+    android:orientation="vertical"
+    android:weightSum="1">
+    <!-- work annotation title-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:background="@color/tealsecondary">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Work Annotation"
+            android:textColor="@color/fontPrimanry"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.8"
+        android:background="@color/backGroundDark"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <!--select work type  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:layout_gravity="center"
+            >
+            <com.beardedhen.androidbootstrap.AwesomeTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                app:bootstrapBrand="success"
+                android:textSize="16dp"
+                app:bootstrapText="Select Typing Task"
+                android:layout_marginTop="5dp"
+                />
+
+
+        </LinearLayout>
+        <!-- list with check box-->
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.5"
+    android:weightSum="1"
+    android:orientation="vertical"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp">
+
+    <RadioButton android:id="@+id/radio_typing_neutral_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:text="Neutral text"
+        android:textColor="#ffff"
+        android:buttonTint="@color/tealsecondary"
+        android:onClick="onRadioButtonClicked"/>
+
+    <RadioButton android:id="@+id/radio_typing_free_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:text="Free Text"
+        android:textColor="#ffff"
+        android:buttonTint="@color/tealsecondary"
+        android:onClick="onRadioButtonClicked"/>
+
+    <RadioButton android:id="@+id/radio_typing_anger_recall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:text="Anger Recall"
+        android:textColor="#ffff"
+        android:buttonTint="@color/tealsecondary"
+        android:onClick="onRadioButtonClicked"/>
+
+    <RadioButton android:id="@+id/radio_typing_evaluation_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Evaluation Text"
+        android:layout_weight="0.1"
+        android:textColor="#ffff"
+        android:buttonTint="@color/tealsecondary"
+        android:onClick="onRadioButtonClicked"/>
+
+
+</LinearLayout>
+
+
+        <!--select typing status  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:layout_gravity="center"
+            >
+            <com.beardedhen.androidbootstrap.AwesomeTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:bootstrapBrand="success"
+                android:textSize="16dp"
+                app:bootstrapText="Select Typing Status"
+                android:layout_marginTop="5dp"
+                />
+
+
+        </LinearLayout>
+        <!-- list with check box-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:weightSum="1"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp">
+
+            <RadioButton android:id="@+id/radio_typing_status_prep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Preparation"
+                android:textColor="#ffff"
+                android:buttonTint="@color/tealsecondary"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton android:id="@+id/radio_typing_status_typing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Typing"
+                android:textColor="#ffff"
+                android:buttonTint="@color/tealsecondary"
+                android:onClick="onRadioButtonClicked"/>
+            </LinearLayout>
+
+        <!-- editbox for Notes -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="0.1"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <com.beardedhen.androidbootstrap.AwesomeTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                app:bootstrapBrand="success"
+                android:textSize="16dp"
+                app:bootstrapText="Notes: "
+                android:layout_marginTop="10dp"
+                />
+            <EditText
+                android:id="@+id/textView_notes"
+                android:layout_width="0dp"
+                android:singleLine="true"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="0.1"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <!-- start button -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33">
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/btn_work_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:bootstrapBrand="success"
+                    app:bootstrapText="{fa_play} Start"
+                    app:buttonMode="regular"
+                    app:roundedCorners="true"
+                    app:showOutline="false" />
+            </LinearLayout>
+            <!--stop button -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33">
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/btn_work_finish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:bootstrapBrand="success"
+                    app:bootstrapSize="md"
+                    app:bootstrapText="{fa_stop} Finish"
+                    app:buttonMode="regular"
+                    app:roundedCorners="true"
+                    app:showOutline="false" />
+
+            </LinearLayout>
+            <!--interupt button -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33">
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/btn_work_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    app:bootstrapBrand="success"
+                    app:bootstrapSize="md"
+                    app:bootstrapText="{fa_ban} Interupt"
+                    app:buttonMode="regular"
+                    app:roundedCorners="true"
+                    app:showOutline="false" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <!--close button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="0.1">
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btn_work_close"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            fancy:fb_borderColor="@color/tealsecondary"
+            fancy:fb_borderWidth="0dp"
+            fancy:fb_defaultColor="@color/backGroundDark"
+            fancy:fb_fontIconResource="&#xf0a8;"
+            fancy:fb_radius="10dp"
+            fancy:fb_text="Back"
+            fancy:fb_textColor="#ff00"
+            fancy:fb_textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>
