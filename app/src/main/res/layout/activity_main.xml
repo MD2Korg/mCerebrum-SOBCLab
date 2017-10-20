@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".ActivityMain"
+    android:background="@color/backgroundlight"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/My_Container_1_ID"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:background="@color/backgroundlight">
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/My_Container_2_ID"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/My_Container_1_ID"
+        android:background="@color/backgrounddark" >
+    </FrameLayout>
+</LinearLayout>
