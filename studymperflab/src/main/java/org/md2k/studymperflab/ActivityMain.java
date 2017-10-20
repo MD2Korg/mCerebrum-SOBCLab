@@ -13,7 +13,7 @@ public class ActivityMain extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Top_Fragment frg=new Top_Fragment();//create the fragment instance for the top fragment
+        FragmentDataQuality frg=new FragmentDataQuality();//create the fragment instance for the top fragment
         Middle_Fragment frg1=new Middle_Fragment();//create the fragment instance for the middle fragment
     //create the fragment instance for the bottom fragment
 
