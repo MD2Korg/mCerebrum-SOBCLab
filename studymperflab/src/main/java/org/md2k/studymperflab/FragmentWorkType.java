@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.BootstrapText;
 import com.beardedhen.androidbootstrap.api.view.BootstrapTextView;
 
@@ -32,6 +33,10 @@ public class FragmentWorkType extends Fragment{
             "Typing task"
     };
 */
+
+    private BootstrapButton buttonStop;
+    private BootstrapButton buttonStart;
+    private BootstrapButton buttonCancel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,6 +69,10 @@ public class FragmentWorkType extends Fragment{
                 }
             }
         });
+
+
+
+
 /*
         radioGroup= (RadioGroup) view.findViewById(R.id.radio_work_type);
         for(int i=0;i<workTypes.length;i++){

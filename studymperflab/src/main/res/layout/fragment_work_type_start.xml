@@ -73,7 +73,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="30dp"
-            android:layout_weight="0.1"
+            android:layout_weight="0.2"
             android:orientation="horizontal"
             android:weightSum="1">
 
@@ -92,6 +92,7 @@
                 android:layout_marginRight="20dp"
                 android:singleLine="true"
                 android:textColor="#ffff"
+                android:textColorHint="#ffff"
                 android:layout_height="match_parent"
                 android:layout_weight="0.7"/>
 
