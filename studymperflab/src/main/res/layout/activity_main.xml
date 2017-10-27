@@ -5,14 +5,17 @@
     tools:context=".ActivityMain"
     android:background="@color/colorBackground"
     android:orientation="vertical">
+    <org.md2k.mcerebrum.commons.ui.data_quality.ViewDataQuality
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></org.md2k.mcerebrum.commons.ui.data_quality.ViewDataQuality>
 
-    <FrameLayout
+<!--    <FrameLayout
         android:id="@+id/container_data_quality"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBackground">
     </FrameLayout>
-
+-->
     <FrameLayout
         android:id="@+id/container_lab"
         android:layout_width="match_parent"

@@ -4,14 +4,11 @@ import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-
-import org.md2k.mcerebrum.system.ui.data_quality.FragmentDataQuality;
 import org.md2k.studymperflab.configuration.CConfig;
 import org.md2k.studymperflab.configuration.ConfigManager;
 
 
 public class ActivityMain extends AppCompatActivity {
-    FragmentDataQuality fragmentDataQuality;
     FragmentWorkType fragmentWorkType;
     FragmentTyping fragmentTyping;
     FragmentWorkTypeStart fragmentWorkTypeStart;
@@ -26,7 +23,7 @@ public class ActivityMain extends AppCompatActivity {
         CConfig cConfig = ConfigManager.read();
 
 
-        fragmentDataQuality=new FragmentDataQuality();
+
 //        fragmentDataQuality.setArguments();
         fragmentWorkType=new FragmentWorkType();
         fragmentTyping=new FragmentTyping();
@@ -36,7 +33,7 @@ public class ActivityMain extends AppCompatActivity {
 
         transaction=manager.beginTransaction();//create an instance of Fragment-transaction
 
-        transaction.add(R.id.container_data_quality, fragmentDataQuality, "Fragment_Data_Quality");
+
         transaction.add(R.id.container_lab, fragmentWorkType, "Fragment_Work_Type");
         transaction.commit();
     }
