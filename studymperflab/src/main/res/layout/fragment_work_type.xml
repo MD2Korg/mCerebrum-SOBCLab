@@ -37,18 +37,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1"
             android:layout_gravity="center"
-            >
+            android:layout_weight="0.1">
+
             <com.beardedhen.androidbootstrap.AwesomeTextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                app:bootstrapBrand="success"
-                android:textSize="16dp"
-                app:bootstrapText="Select work Type"
                 android:layout_marginTop="5dp"
-                />
+                android:layout_weight="0.5"
+                android:textSize="16dp"
+                app:bootstrapBrand="success"
+                app:bootstrapText="Select work Type" />
 
 
         </LinearLayout>
@@ -57,123 +56,132 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.8"
-            android:weightSum="1"
-            android:orientation="vertical"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            android:layout_marginRight="20dp"
+            android:layout_weight="0.8"
+            android:orientation="vertical"
+            android:weightSum="1">
 
-            <RadioButton android:id="@+id/radio_baseline"
+            <RadioGroup
+                android:id="@+id/radio_work_type"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.09"
-                android:text="Baseline rest period"
-                android:textColor="#ffff"
-                android:textSize="15dp"
-                android:buttonTint="@color/tealsecondary"
-                android:onClick="onRadioButtonClicked"/>
+                android:layout_height="wrap_content">
 
-            <RadioButton android:id="@+id/radio_etray_task"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.09"
-                android:text="e-Tray task"
-                android:textSize="15dp"
-                android:textColor="#ffff"
-                android:buttonTint="@color/tealsecondary"
-                android:onClick="onRadioButtonClicked"/>
+                <RadioButton
+                    android:id="@+id/radio_baseline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Baseline rest period"
+                    android:buttonTint="@color/tealsecondary"
+                    android:textColor="#ffff" />
 
-            <RadioButton android:id="@+id/radio_typing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.09"
-                android:text="Typing task"
-                android:textSize="15dp"
-                android:textColor="#ffff"
-                android:buttonTint="@color/tealsecondary"
-                android:onClick="onRadioButtonClicked"/>
+                <RadioButton
+                    android:id="@+id/radio_etray_task"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="e-Tray task"
+                    android:textColor="#ffff"
+                     />
 
-            <RadioButton android:id="@+id/radio_post_typing_qualtrics"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Post typing task qualtrics [untimed]"
-                android:layout_weight="0.09"
-                android:textSize="15dp"
-                android:textColor="#ffff"
-                android:buttonTint="@color/tealsecondary"
-                android:onClick="onRadioButtonClicked"/>
+                <RadioButton
+                    android:id="@+id/radio_typing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Typing task"
+                    android:textColor="#ffff"
+                     />
 
-            <RadioButton android:id="@+id/radio_post_typing_rest"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.09"
-                android:textSize="15dp"
-                android:text="Post typing rest period"
-                android:textColor="#ffff"
-                android:buttonTint="@color/tealsecondary"
-                android:onClick="onRadioButtonClicked"/>
-            <RadioButton android:id="@+id/radio_public_speaking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.09"
-                android:textSize="15dp"
-                android:text="Public speaking task sections"
-                android:textColor="#ffff"
-                android:buttonTint="@color/tealsecondary"
-                android:onClick="onRadioButtonClicked"/>
-            <RadioButton android:id="@+id/radio_mental_arithmatic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.09"
-                android:textSize="15dp"
-                android:text="Mental arithmatic task"
-                android:textColor="#ffff"
-                android:buttonTint="@color/tealsecondary"
-                android:onClick="onRadioButtonClicked"/>
-            <RadioButton android:id="@+id/radio_post_stress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.09"
-                android:textSize="15dp"
-                android:text="Post stress task recovery"
-                android:textColor="#ffff"
-                android:buttonTint="@color/tealsecondary"
-                android:onClick="onRadioButtonClicked"/>
-            <RadioButton android:id="@+id/radio_qualtric_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.09"
-                android:textSize="15dp"
-                android:text="Qualitrics questionnaires [untimed]"
-                android:textColor="#ffff"
-                android:buttonTint="@color/tealsecondary"
-                android:onClick="onRadioButtonClicked"/>
-            <RadioButton android:id="@+id/radio_bathroom_break"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:textSize="15dp"
-                android:text="Participant requested bathroom break  [unanticipated, untimed]"
-                android:textColor="#ffff"
-                android:buttonTint="@color/tealsecondary"
-                android:onClick="onRadioButtonClicked"/>
-            <RadioButton android:id="@+id/radio_drink_water"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:text="Participant drinks water or other beverage [unanticipated, untimed]"
-                android:textColor="#ffff"
-                android:textSize="15dp"
-                android:buttonTint="@color/tealsecondary"
-                android:onClick="onRadioButtonClicked"/>
+                <RadioButton
+                    android:id="@+id/radio_post_typing_qualtrics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Post typing task qualtrics"
+                    android:textColor="#ffff"
+                     />
 
+                <RadioButton
+                    android:id="@+id/radio_post_typing_rest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Post typing rest period"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_public_speaking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Public speaking task sections"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_mental_arithmatic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Mental arithmatic task"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_post_stress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Post stress task recovery"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_qualtric_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    android:text="Qualitrics questionnaires"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_bathroom_break"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Participant requested bathroom break"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_drink_water"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/tealsecondary"
+                    android:text="Participant drinks water or other beverage"
+                    android:textColor="#ffff"
+                     />
+            </RadioGroup>
         </LinearLayout>
-
-
-
-
-
-
     </LinearLayout>
 
 
@@ -181,12 +189,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:layout_weight="0.1">
 
         <mehdi.sakout.fancybuttons.FancyButton
-            android:id="@+id/btn_select_work_close"
+            android:id="@+id/button_go"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             fancy:fb_borderColor="@color/tealsecondary"

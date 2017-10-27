@@ -37,87 +37,86 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1"
             android:layout_gravity="center"
-            >
+            android:layout_weight="0.1">
+
             <com.beardedhen.androidbootstrap.AwesomeTextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                app:bootstrapBrand="success"
-                android:textSize="16dp"
-                app:bootstrapText="Select Typing Task"
                 android:layout_marginTop="5dp"
-                />
+                android:layout_weight="0.5"
+                android:textSize="16dp"
+                app:bootstrapBrand="success"
+                app:bootstrapText="Select Typing Task" />
 
 
         </LinearLayout>
         <!-- list with check box-->
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="0.5"
-    android:weightSum="1"
-    android:orientation="vertical"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            android:weightSum="1">
 
-    <RadioButton android:id="@+id/radio_typing_neutral_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"
-        android:text="Neutral text"
-        android:textColor="#ffff"
-        android:buttonTint="@color/tealsecondary"
-        android:onClick="onRadioButtonClicked"/>
+            <RadioGroup
+                android:id="@+id/radio_typing_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-    <RadioButton android:id="@+id/radio_typing_free_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"
-        android:text="Free Text"
-        android:textColor="#ffff"
-        android:buttonTint="@color/tealsecondary"
-        android:onClick="onRadioButtonClicked"/>
+                <RadioButton
+                    android:id="@+id/radio_typing_neutral_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/tealsecondary"
+                    android:text="Neutral text"
+                    android:textColor="#ffff" />
 
-    <RadioButton android:id="@+id/radio_typing_anger_recall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"
-        android:text="Anger Recall"
-        android:textColor="#ffff"
-        android:buttonTint="@color/tealsecondary"
-        android:onClick="onRadioButtonClicked"/>
+                <RadioButton
+                    android:id="@+id/radio_typing_free_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/tealsecondary"
+                    android:text="Free Text"
+                    android:textColor="#ffff" />
 
-    <RadioButton android:id="@+id/radio_typing_evaluation_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Evaluation Text"
-        android:layout_weight="0.1"
-        android:textColor="#ffff"
-        android:buttonTint="@color/tealsecondary"
-        android:onClick="onRadioButtonClicked"/>
+                <RadioButton
+                    android:id="@+id/radio_typing_anger_recall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/tealsecondary"
+                    android:text="Anger Recall"
+                    android:textColor="#ffff" />
 
+                <RadioButton
+                    android:id="@+id/radio_typing_evaluation_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/tealsecondary"
+                    android:text="Evaluation Text"
+                    android:textColor="#ffff" />
+            </RadioGroup>
 
-</LinearLayout>
+        </LinearLayout>
 
 
         <!--select typing status  -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1"
             android:layout_gravity="center"
-            >
+            android:layout_weight="0.1">
+
             <com.beardedhen.androidbootstrap.AwesomeTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:bootstrapBrand="success"
-                android:textSize="16dp"
-                app:bootstrapText="Select Typing Status"
                 android:layout_marginTop="5dp"
-                />
+                android:textSize="16dp"
+                app:bootstrapBrand="success"
+                app:bootstrapText="Select Typing Status" />
 
 
         </LinearLayout>
@@ -126,39 +125,45 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:weightSum="1"
-            android:orientation="horizontal"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp">
+            android:layout_marginRight="30dp"
+            android:layout_weight="0.1"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
-            <RadioButton android:id="@+id/radio_typing_status_prep"
+            <RadioGroup
+                android:id="@+id/radio_typing_status"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="Preparation"
-                android:textColor="#ffff"
-                android:buttonTint="@color/tealsecondary"
-                android:onClick="onRadioButtonClicked"/>
+                android:layout_height="wrap_content">
 
-            <RadioButton android:id="@+id/radio_typing_status_typing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="Typing"
-                android:textColor="#ffff"
-                android:buttonTint="@color/tealsecondary"
-                android:onClick="onRadioButtonClicked"/>
-            </LinearLayout>
+                <RadioButton
+                    android:id="@+id/radio_typing_status_prep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:buttonTint="@color/tealsecondary"
+                    android:text="Preparation"
+                    android:textColor="#ffff" />
+
+                <RadioButton
+                    android:id="@+id/radio_typing_status_typing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:buttonTint="@color/tealsecondary"
+                    android:text="Typing"
+                    android:textColor="#ffff" />
+            </RadioGroup>
+        </LinearLayout>
 
         <!-- editbox for Notes -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="0.1"
             android:orientation="horizontal"
             android:weightSum="1">
@@ -166,18 +171,18 @@
             <com.beardedhen.androidbootstrap.AwesomeTextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                app:bootstrapBrand="success"
-                android:textSize="16dp"
-                app:bootstrapText="Notes: "
                 android:layout_marginTop="10dp"
-                />
+                android:layout_weight="0.3"
+                android:textSize="16dp"
+                app:bootstrapBrand="success"
+                app:bootstrapText="Notes: " />
+
             <EditText
                 android:id="@+id/textView_notes"
                 android:layout_width="0dp"
-                android:singleLine="true"
                 android:layout_height="match_parent"
-                android:layout_weight="0.7"/>
+                android:layout_weight="0.7"
+                android:singleLine="true" />
 
 
         </LinearLayout>
@@ -187,9 +192,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="0.1"
             android:orientation="horizontal"
             android:weightSum="1">
@@ -256,12 +261,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:layout_weight="0.1">
 
         <mehdi.sakout.fancybuttons.FancyButton
-            android:id="@+id/btn_work_close"
+            android:id="@+id/button_back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             fancy:fb_borderColor="@color/tealsecondary"

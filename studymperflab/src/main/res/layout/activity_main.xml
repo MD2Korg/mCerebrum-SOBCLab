@@ -3,25 +3,21 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     tools:context=".ActivityMain"
-    android:background="@color/backgroundlight"
-    android:weightSum="1"
+    android:background="@color/colorBackground"
     android:orientation="vertical">
 
     <FrameLayout
-        android:id="@+id/My_Container_1_ID"
+        android:id="@+id/container_data_quality"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.3"
-        android:background="@color/backgroundlight">
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground">
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/My_Container_2_ID"
+        android:id="@+id/container_lab"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.7"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/My_Container_1_ID"
-        android:background="@color/backgrounddark" >
+        android:background="@color/colorBackground" >
     </FrameLayout>
 </LinearLayout>

@@ -190,7 +190,7 @@
         android:layout_weight="0.1">
 
         <mehdi.sakout.fancybuttons.FancyButton
-            android:id="@+id/btn_work_close"
+            android:id="@+id/button_back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             fancy:fb_borderColor="@color/tealsecondary"
@@ -198,7 +198,7 @@
             fancy:fb_defaultColor="@color/backGroundDark"
             fancy:fb_fontIconResource="&#xf00d;"
             fancy:fb_radius="10dp"
-            fancy:fb_text="Close"
+            fancy:fb_text="Back"
             fancy:fb_textColor="#ff00"
             fancy:fb_textSize="16sp" />
     </LinearLayout>

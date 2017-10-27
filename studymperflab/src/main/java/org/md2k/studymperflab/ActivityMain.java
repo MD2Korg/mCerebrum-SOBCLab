@@ -1,34 +1,58 @@
 package org.md2k.studymperflab;
 
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+
+import org.md2k.mcerebrum.system.ui.data_quality.FragmentDataQuality;
+import org.md2k.studymperflab.configuration.CConfig;
+import org.md2k.studymperflab.configuration.ConfigManager;
 
 
-public class ActivityMain extends FragmentActivity {
+public class ActivityMain extends AppCompatActivity {
+    FragmentDataQuality fragmentDataQuality;
+    FragmentWorkType fragmentWorkType;
+    FragmentTyping fragmentTyping;
+    FragmentWorkTypeStart fragmentWorkTypeStart;
+    FragmentManager manager;
+    FragmentTransaction transaction;
+    public String workType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        FragmentDataQuality frg=new FragmentDataQuality();//create the fragment instance for the top fragment
-        Middle_Fragment frg1=new Middle_Fragment();//create the fragment instance for the middle fragment
-    //create the fragment instance for the bottom fragment
-
-        FragmentManager manager=getSupportFragmentManager();//create an instance of fragment manager
-
-        FragmentTransaction transaction=manager.beginTransaction();//create an instance of Fragment-transaction
-
-        transaction.add(R.id.My_Container_1_ID, frg, "Frag_Top_tag");
-        transaction.add(R.id.My_Container_2_ID, frg1, "Frag_Middle_tag");
+        CConfig cConfig = ConfigManager.read();
 
 
+        fragmentDataQuality=new FragmentDataQuality();
+//        fragmentDataQuality.setArguments();
+        fragmentWorkType=new FragmentWorkType();
+        fragmentTyping=new FragmentTyping();
+        fragmentWorkTypeStart=new FragmentWorkTypeStart();
 
+        manager=getSupportFragmentManager();//create an instance of fragment manager
+
+        transaction=manager.beginTransaction();//create an instance of Fragment-transaction
+
+        transaction.add(R.id.container_data_quality, fragmentDataQuality, "Fragment_Data_Quality");
+        transaction.add(R.id.container_lab, fragmentWorkType, "Fragment_Work_Type");
         transaction.commit();
-
     }
-
-
+    public void loadWorkType(){
+        transaction=manager.beginTransaction();//create an instance of Fragment-transaction
+        transaction.replace(R.id.container_lab, fragmentWorkType,"Fragment_Work_Type");
+        transaction.commit();
+    }
+    public void loadTyping(){
+        transaction=manager.beginTransaction();//create an instance of Fragment-transaction
+        transaction.replace(R.id.container_lab, fragmentTyping,"Fragment_Typing");
+        transaction.commit();
+    }
+    public void loadWorkTypeStart(){
+        transaction=manager.beginTransaction();//create an instance of Fragment-transaction
+        transaction.replace(R.id.container_lab, fragmentWorkTypeStart,"Fragment_Work_Type_Start");
+        transaction.commit();
+    }
 }
