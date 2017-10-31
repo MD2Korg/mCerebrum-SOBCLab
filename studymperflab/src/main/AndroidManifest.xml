@@ -3,6 +3,7 @@
     package="org.md2k.studymperflab">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -14,10 +15,12 @@
         <activity android:name=".ActivityMain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <activity android:name=".ui.main.ActivityLeftWrist"></activity>
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity android:name=".ActivityLeftWrist"></activity>
     </application>
 
 </manifest>

@@ -27,5 +27,5 @@ package org.md2k.studymperflab.configuration;
  */
 
 public class CConfig {
-    CUI ui;
+    public CUI ui;
 }

@@ -41,6 +41,9 @@ dependencies {
     }
 
     compile files('libs/YouTubeAndroidPlayerApi.jar')
+
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.mikepenz:fontawesome-typeface:4.7.0.0@aar'
@@ -53,8 +56,5 @@ dependencies {
     compile 'com.android.support:multidex:1.0.0'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.jzxiang.pickerview:TimePickerDialog:1.0.1'
-
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
 }

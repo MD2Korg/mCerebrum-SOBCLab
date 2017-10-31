@@ -29,8 +29,8 @@ package org.md2k.studymperflab.configuration;
 import org.md2k.datakitapi.source.datasource.DataSource;
 
 public class CDataQuality {
-    String title;
-    DataSource datasource;
-    String video_link;
-    String message;
+    public String title;
+    public DataSource datasource;
+    public String video_link;
+    public String message;
 }
