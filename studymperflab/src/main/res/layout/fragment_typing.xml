@@ -33,7 +33,7 @@
         android:orientation="vertical"
         android:weightSum="1">
 
-        <!--select work type  -->
+        <!--select typing task  -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -53,56 +53,39 @@
         </LinearLayout>
         <!-- list with check box-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="0.25"
-            android:orientation="vertical"
-            android:weightSum="1">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="10dp"
+    android:layout_weight="0.32"
+    android:orientation="vertical"
+    android:weightSum="1">
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.5"
-                android:weightSum="1"
-                android:orientation="horizontal">
-
+    <RadioGroup
+        android:id="@+id/radio_typing_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
                 <RadioButton
                     android:id="@+id/radio_typing_neutral_text"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
                     android:buttonTint="@color/tealsecondary"
                     android:text="Neutral text"
                     android:textColor="#ffff" />
 
                 <RadioButton
                     android:id="@+id/radio_typing_free_text"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
                     android:buttonTint="@color/tealsecondary"
                     android:text="Free Text"
                     android:textColor="#ffff" />
 
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.5"
-                android:weightSum="1"
-                android:orientation="horizontal">
-
                 <RadioButton
                     android:id="@+id/radio_typing_anger_recall"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.5"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/tealsecondary"
                     android:text="Anger Recall"
@@ -110,20 +93,15 @@
 
                 <RadioButton
                     android:id="@+id/radio_typing_evaluation_text"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.5"
-
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/tealsecondary"
                     android:text="Evaluation Text"
                     android:textColor="#ffff" />
 
+    </RadioGroup>
 
 </LinearLayout>
-
-        </LinearLayout>
-
-
 
         <!--select typing status  -->
         <LinearLayout
@@ -149,7 +127,7 @@
             android:layout_height="0dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_weight="0.15"
+            android:layout_weight="0.12"
             android:orientation="horizontal"
             android:weightSum="1">
 

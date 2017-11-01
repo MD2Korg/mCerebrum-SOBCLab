@@ -5,12 +5,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.AwesomeTextView;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
 import org.md2k.datakitapi.time.DateTime;
 
+import es.dmoral.toasty.Toasty;
 import mehdi.sakout.fancybuttons.FancyButton;
 
 
@@ -71,6 +73,8 @@ public class FragmentWorkTypeStart extends Fragment{
               //  writeSharedPreference();
           //      handler.removeCallbacks(runnable);
             //    handler.post(runnable);
+                String work_status= activityMain.workType+ " "+"start";
+                Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
                 enableButtons(false, true, false);
 
 
@@ -91,6 +95,8 @@ public class FragmentWorkTypeStart extends Fragment{
             //    insertData();
             //    handler.removeCallbacks(runnable);
             //    writeSharedPreference();
+                String work_status= activityMain.workType+ " "+"stop";
+                Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
                 enableButtons(true, false, true);
            //     showMessage("FINISHED");
             }
@@ -106,6 +112,8 @@ public class FragmentWorkTypeStart extends Fragment{
              //   insertData();
              //   writeSharedPreference();
              //   handler.removeCallbacks(runnable);
+                String work_status= activityMain.workType+ " "+"Cancel";
+                Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
                 enableButtons(true, false, true);
            //     showMessage("CANCELLED");
             }

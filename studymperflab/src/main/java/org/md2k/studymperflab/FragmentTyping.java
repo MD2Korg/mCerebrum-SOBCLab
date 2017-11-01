@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -14,7 +15,7 @@ import es.dmoral.toasty.Toasty;
 import mehdi.sakout.fancybuttons.FancyButton;
 
 
-public class FragmentTyping extends Fragment{
+public class FragmentTyping extends Fragment {
 
     View view;
     FancyButton fancyButtonBack;
@@ -25,44 +26,45 @@ public class FragmentTyping extends Fragment{
     private BootstrapButton buttonStart;
     private BootstrapButton buttonCancel;
     private BootstrapButton buttonInterupt;
-
+    String typing_task;
+    String typing_status;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.fragment_typing, container, false);
+        view = inflater.inflate(R.layout.fragment_typing, container, false);
         return view;
     }
+
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
-        activityMain= (ActivityMain) getActivity();
+        activityMain = (ActivityMain) getActivity();
         fancyButtonBack = (FancyButton) view.findViewById(R.id.button_back);
+        radioGroupTypingTask = (RadioGroup) view.findViewById(R.id.radio_typing_task);
         radioGroupTypingStatus = (RadioGroup) view.findViewById(R.id.radio_typing_status);
         buttonStart = (BootstrapButton) view.findViewById(R.id.btn_work_start);
         buttonFinish = (BootstrapButton) view.findViewById(R.id.btn_work_finish);
         buttonCancel = (BootstrapButton) view.findViewById(R.id.btn_work_cancel);
-        buttonInterupt=(BootstrapButton) view.findViewById(R.id.btn_work_interupt);
-
-        prepareCancel(view);
-        prepareStart(view);
-        prepareFinish(view);
-        prepareInterupt(view);
-
-
-
-      //       radioGroupTypingTask = (RadioGroup) view.findViewById(R.id.radio_typing_task);
+        buttonInterupt = (BootstrapButton) view.findViewById(R.id.btn_work_interupt);
         fancyButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 activityMain.loadWorkType();
             }
         });
+        prepareCancel(view);
+        prepareStart(view);
+        prepareFinish(view);
+        prepareInterupt(view);
+
+
+        //   radioGroupTypingTask = (RadioGroup) view.findViewById(R.id.radio_typing_task);
+
 
     }
 
 
-
-    void prepareStart(View view) {
+    void prepareStart(final View view) {
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,13 +76,16 @@ public class FragmentTyping extends Fragment{
                 //  writeSharedPreference();
                 //      handler.removeCallbacks(runnable);
                 //    handler.post(runnable);
-                enableButtons(false, true, false);
+                if(check()==true) {
+                    String work_status = activityMain.workType + " " + typing_task + " " + typing_status + " " + "start";
+                    Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
+                }
+                    enableButtons(false, true, false);
 
 
             }
         });
     }
-
 
 
     void prepareInterupt(View view) {
@@ -96,7 +101,12 @@ public class FragmentTyping extends Fragment{
                 Toasty.normal(getContext(), "Interrupted...", Toast.LENGTH_SHORT).show();
                 //      handler.removeCallbacks(runnable);
                 //    handler.post(runnable);
-                enableButtons(false, true, false);
+                if(check()==true) {
+                    String work_status = activityMain.workType + " " + typing_task + " " + typing_status + " " + "interrupted";
+                    Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
+                }
+
+                    enableButtons(false, true, false);
 
 
             }
@@ -116,7 +126,11 @@ public class FragmentTyping extends Fragment{
                 //    insertData();
                 //    handler.removeCallbacks(runnable);
                 //    writeSharedPreference();
-                enableButtons(true, false, true);
+                if(check()==true) {
+                    String work_status = activityMain.workType + " " + typing_task + " " + typing_status + " " + "finish";
+                    Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
+                }
+                    enableButtons(true, false, true);
                 //     showMessage("FINISHED");
             }
         });
@@ -131,12 +145,15 @@ public class FragmentTyping extends Fragment{
                 //   insertData();
                 //   writeSharedPreference();
                 //   handler.removeCallbacks(runnable);
-                enableButtons(true, false, true);
+                if(check()==true) {
+                    String work_status = activityMain.workType + " " + typing_task + " " + typing_status + " " + "cancel";
+                    Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
+                }
+                    enableButtons(true, false, true);
                 //     showMessage("CANCELLED");
             }
         });
     }
-
 
 
     void enableButtons(boolean st, boolean sp, boolean wt) {
@@ -154,4 +171,28 @@ public class FragmentTyping extends Fragment{
         //  select_context.setEnabled(wt);
     }
 
+    boolean check() {
+
+        int selectedId = radioGroupTypingTask.getCheckedRadioButtonId();
+        int selectedstatus = radioGroupTypingStatus.getCheckedRadioButtonId();
+        if (selectedId == -1) {
+            Toasty.error(getContext(), "Please select a typing type to continue...", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (selectedstatus == -1) {
+            Toasty.error(getContext(), "Please select a typing status to continue...", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else  {
+            RadioButton r_task = (RadioButton) view.findViewById(selectedId);
+            RadioButton r_status = (RadioButton) view.findViewById(selectedstatus);
+            typing_task = r_task.getText().toString();
+            typing_status=r_status.getText().toString();
+            return true;
+        }
+
+
+
+
+}
 }

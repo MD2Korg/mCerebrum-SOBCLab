@@ -52,6 +52,7 @@ public class FragmentWorkType extends Fragment{
         activityMain= (ActivityMain) getActivity();
         fancyButtonGo = (FancyButton) view.findViewById(R.id.button_go);
         radioGroup = (RadioGroup) view.findViewById(R.id.radio_work_type);
+
         fancyButtonGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
