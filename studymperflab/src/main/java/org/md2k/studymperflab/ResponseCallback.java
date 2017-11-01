@@ -26,6 +26,9 @@ package org.md2k.studymperflab;
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-public interface ResponseCallback {
-    void onResponse(String[] selection);
+
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+
+public interface ResponseCallBack {
+    void onResponse(IDrawerItem drawerItem, int responseId);
 }

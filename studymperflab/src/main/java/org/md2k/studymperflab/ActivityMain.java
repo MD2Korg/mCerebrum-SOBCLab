@@ -24,7 +24,7 @@ import es.dmoral.toasty.Toasty;
 import mehdi.sakout.fancybuttons.FancyButton;
 
 
-public class ActivityMain extends AppCompatActivity {
+public class ActivityMain extends AbstractActivityMenu {
     FragmentWorkType fragmentWorkType;
     FragmentTyping fragmentTyping;
     FragmentWorkTypeStart fragmentWorkTypeStart;
@@ -41,7 +41,7 @@ public class ActivityMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
         Permission.requestPermission(this, new
 
                 PermissionCallback() {
@@ -82,16 +82,17 @@ public class ActivityMain extends AppCompatActivity {
     public void loadDataQualityUI(){
         cConfig = ConfigManager.read();
         TextView textView1= (TextView) findViewById(R.id.textview_data_quality_title_1);
-        textView1.setText(cConfig.ui.data_quality[0].title);
+        textView1.setText(cConfig.ui.home_screen.data_quality[0].title);
         dq1 = (FancyButton) findViewById(R.id.button_data_quality_1);
         dq1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityMain.this, ActivityDataQuality.class);
-                intent.putExtra("title", cConfig.ui.data_quality[0].title);
-                intent.putExtra("message", cConfig.ui.data_quality[0].message);
-                intent.putExtra("video_link", cConfig.ui.data_quality[0].video_link);
-                intent.putExtra("datasource", cConfig.ui.data_quality[0].datasource);
+                intent.putExtra("title", cConfig.ui.home_screen.data_quality[0].title);
+                intent.putExtra("message", cConfig.ui.home_screen.data_quality[0].message);
+                intent.putExtra("video_link", cConfig.ui.home_screen.data_quality[0].video_link);
+                intent.putExtra("read", cConfig.ui.home_screen.data_quality[0].read);
+                intent.putExtra("plot", cConfig.ui.home_screen.data_quality[0].plot);
 //                intent.putExtra(CDataQuality.class.getSimpleName(), cConfig.ui.data_quality[0]);
                 startActivity(intent);
             }
@@ -100,32 +101,34 @@ public class ActivityMain extends AppCompatActivity {
 
 
         TextView textView2= (TextView) findViewById(R.id.textview_data_quality_title_2);
-        textView2.setText(cConfig.ui.data_quality[1].title);
+        textView2.setText(cConfig.ui.home_screen.data_quality[1].title);
         dq2 = (FancyButton) findViewById(R.id.button_data_quality_2);
         dq2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityMain.this, ActivityDataQuality.class);
-                intent.putExtra("title", cConfig.ui.data_quality[1].title);
-                intent.putExtra("message", cConfig.ui.data_quality[1].message);
-                intent.putExtra("video_link", cConfig.ui.data_quality[1].video_link);
-                intent.putExtra("datasource", cConfig.ui.data_quality[1].datasource);
+                intent.putExtra("title", cConfig.ui.home_screen.data_quality[1].title);
+                intent.putExtra("message", cConfig.ui.home_screen.data_quality[1].message);
+                intent.putExtra("video_link", cConfig.ui.home_screen.data_quality[1].video_link);
+                intent.putExtra("read", cConfig.ui.home_screen.data_quality[1].read);
+                intent.putExtra("plot", cConfig.ui.home_screen.data_quality[1].plot);
                 startActivity(intent);
             }
         });
 
 
         TextView textView3= (TextView) findViewById(R.id.textview_data_quality_title_3);
-        textView3.setText(cConfig.ui.data_quality[2].title);
+        textView3.setText(cConfig.ui.home_screen.data_quality[2].title);
         dq3 = (FancyButton) findViewById(R.id.button_data_quality_3);
         dq3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityMain.this, ActivityDataQuality.class);
-                intent.putExtra("title", cConfig.ui.data_quality[2].title);
-                intent.putExtra("message", cConfig.ui.data_quality[2].message);
-                intent.putExtra("video_link", cConfig.ui.data_quality[2].video_link);
-                intent.putExtra("datasource", cConfig.ui.data_quality[2].datasource);
+                intent.putExtra("title", cConfig.ui.home_screen.data_quality[2].title);
+                intent.putExtra("message", cConfig.ui.home_screen.data_quality[2].message);
+                intent.putExtra("video_link", cConfig.ui.home_screen.data_quality[2].video_link);
+                intent.putExtra("read", cConfig.ui.home_screen.data_quality[2].read);
+                intent.putExtra("plot", cConfig.ui.home_screen.data_quality[2].plot);
                 startActivity(intent);
             }
         });
@@ -133,16 +136,17 @@ public class ActivityMain extends AppCompatActivity {
 
 
         TextView textView4= (TextView) findViewById(R.id.textview_data_quality_title_4);
-        textView4.setText(cConfig.ui.data_quality[3].title);
+        textView4.setText(cConfig.ui.home_screen.data_quality[3].title);
         dq4 = (FancyButton) findViewById(R.id.button_data_quality_4);
         dq4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityMain.this, ActivityDataQuality.class);
-                intent.putExtra("title", cConfig.ui.data_quality[3].title);
-                intent.putExtra("message", cConfig.ui.data_quality[3].message);
-                intent.putExtra("video_link", cConfig.ui.data_quality[3].video_link);
-                intent.putExtra("datasource", cConfig.ui.data_quality[3].datasource);
+                intent.putExtra("title", cConfig.ui.home_screen.data_quality[3].title);
+                intent.putExtra("message", cConfig.ui.home_screen.data_quality[3].message);
+                intent.putExtra("video_link", cConfig.ui.home_screen.data_quality[3].video_link);
+                intent.putExtra("read", cConfig.ui.home_screen.data_quality[3].read);
+                intent.putExtra("plot", cConfig.ui.home_screen.data_quality[3].plot);
                 startActivity(intent);
             }
         });

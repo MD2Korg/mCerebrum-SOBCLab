@@ -28,10 +28,6 @@ package org.md2k.studymperflab.configuration;
 
 import org.md2k.datakitapi.source.datasource.DataSource;
 
-public class CDataQuality {
-    public String title;
-    public DataSource read;
-    public DataSource plot;
-    public String video_link;
-    public String message;
+public class CHomeScreen {
+    public CDataQuality[] data_quality;
 }

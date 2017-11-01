@@ -1,4 +1,4 @@
-package org.md2k.studymperflab.configuration;
+package org.md2k.studymperflab.menu;
 /*
  * Copyright (c) 2016, The University of Memphis, MD2K Center
  * - Syed Monowar Hossain <monowar.hossain@gmail.com>
@@ -26,12 +26,23 @@ package org.md2k.studymperflab.configuration;
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import org.md2k.datakitapi.source.datasource.DataSource;
+import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 
-public class CDataQuality {
-    public String title;
-    public DataSource read;
-    public DataSource plot;
-    public String video_link;
-    public String message;
+public class MenuContent {
+    public static final String PRIMARY_DRAWER_ITEM = "PRIMARY_DRAWER_ITEM";
+    static final String SECTION_DRAWER_ITEM = "SECTION_DRAWER_ITEM";
+    static final String SECONDARY_DRAWER_ITEM = "SECONDARY_DRAWER_ITEM";
+    String name;
+    FontAwesome.Icon icon;
+    String type;
+    long identifier;
+    int badgeValue;
+
+    public MenuContent(String name, FontAwesome.Icon icon, String type, long identifier, int badgeValue) {
+        this.name = name;
+        this.icon = icon;
+        this.type = type;
+        this.identifier = identifier;
+        this.badgeValue=badgeValue;
+    }
 }

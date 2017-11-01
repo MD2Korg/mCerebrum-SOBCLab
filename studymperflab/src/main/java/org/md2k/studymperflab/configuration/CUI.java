@@ -27,5 +27,5 @@ package org.md2k.studymperflab.configuration;
  */
 
 public class CUI {
-    public CDataQuality[] data_quality;
+    public CHomeScreen home_screen;
 }
