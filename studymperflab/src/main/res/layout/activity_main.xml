@@ -1,26 +1,47 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    tools:context=".ActivityMain"
-    android:background="@color/colorBackground"
-    android:orientation="vertical">
-    <org.md2k.mcerebrum.commons.ui.data_quality.ViewDataQuality
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></org.md2k.mcerebrum.commons.ui.data_quality.ViewDataQuality>
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="org.md2k.studymperflab.ActivityMain">
 
-<!--    <FrameLayout
-        android:id="@+id/container_data_quality"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBackground">
-    </FrameLayout>
--->
-    <FrameLayout
-        android:id="@+id/container_lab"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:background="@color/colorBackground" >
-    </FrameLayout>
-</LinearLayout>
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <org.md2k.mcerebrum.commons.ui.data_quality.ViewDataQuality
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></org.md2k.mcerebrum.commons.ui.data_quality.ViewDataQuality>
+
+        <!--    <FrameLayout
+                android:id="@+id/container_data_quality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBackground">
+            </FrameLayout>
+        -->
+        </LinearLayout>
+        <FrameLayout
+            android:id="@+id/container_lab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@color/colorBackground"></FrameLayout>
+    </LinearLayout>
+</RelativeLayout>
