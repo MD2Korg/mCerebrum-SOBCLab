@@ -1,4 +1,4 @@
-package org.md2k.studymperflab.configuration;
+package org.md2k.studymperflab.menu;
 /*
  * Copyright (c) 2016, The University of Memphis, MD2K Center
  * - Syed Monowar Hossain <monowar.hossain@gmail.com>
@@ -26,12 +26,9 @@ package org.md2k.studymperflab.configuration;
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import org.md2k.datakitapi.source.datasource.DataSource;
 
-public class CDataQuality {
-    public String title;
-    public DataSource read;
-    public DataSource plot;
-    public String video_link;
-    public String message;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+
+public interface ResponseCallBack {
+    void onResponse(IDrawerItem drawerItem, int responseId);
 }

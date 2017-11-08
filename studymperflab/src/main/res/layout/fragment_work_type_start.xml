@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Work Annotation"
+            android:text="Lab Session"
             android:textColor="@color/fontPrimanry"
             android:textSize="18sp" />
 
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="28dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginRight="32dp"
             android:layout_weight="0.2"
             android:orientation="horizontal"
@@ -88,7 +88,7 @@
 
                 />
             <EditText
-                android:id="@+id/textView_notes"
+                android:id="@+id/editView_notes"
                 android:layout_width="0dp"
                 android:layout_marginRight="20dp"
                 android:singleLine="true"
@@ -116,10 +116,10 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="80dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="30dp"
-            android:layout_weight="0.1"
+            android:layout_weight="0.3"
             android:orientation="horizontal"
             android:weightSum="1">
             <!-- start button -->

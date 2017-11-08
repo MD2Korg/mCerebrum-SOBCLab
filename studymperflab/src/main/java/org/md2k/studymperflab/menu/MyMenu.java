@@ -42,80 +42,55 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import org.md2k.mcerebrum.system.update.Update;
 import org.md2k.studymperflab.MyApplication;
 import org.md2k.studymperflab.R;
-import org.md2k.studymperflab.ResponseCallBack;
-
+import org.md2k.studymperflab.configuration.CMenu;
 
 public class MyMenu {
     public static final int MENU_HOME = 0;
-    public static final int MENU_HELP = 1;
-    public static final int MENU_SETTINGS = 2;
-    public static final int MENU_LOGIN = 3;
-    public static final int MENU_LOGOUT = 4;
-    public static final int MENU_START_STOP=5;
+    public static final int MENU_SETTINGS = 1;
+    public static final int MENU_START_STOP_DATA_COLLECTION =2;
+    public static final int MENU_RESET=3;
+    public static final int MENU_UPDATE=4;
+    public static final int MENU_HELP = 5;
     public static final int MENU_CONTACT_US=6;
-    public static final int MENU_WORK_ANNOTATION =7;
-    public static final int MENU_RESET=8;
-    public static final int MENU_UPDATE=9;
+    public static final String MENU_HOME_STR="HOME";
+    public static final String MENU_SETTINGS_STR="SETTINGS";
+    public static final String MENU_START_STOP_DATA_COLLECTION_STR="START_STOP_DATA_COLLECTION";
+    public static final String MENU_RESET_STR="RESET";
+    public static final String MENU_UPDATE_STR ="UPDATE";
+    public static final String MENU_HELP_STR="HELP";
+    public static final String MENU_CONTACT_US_STR="CONTACT_US";
 
 //    abstract IProfile[] getHeaderContentType(final Context context, UserInfo userInfo, StudyInfo studyInfo, final ResponseCallBack responseCallBack);
 
     public IProfile[] getHeaderContent(String userTitle, /*UserInfo userInfo, StudyInfo studyInfo, */final ResponseCallBack responseCallBack) {
         IProfile[] iProfiles=new IProfile[1];
         iProfiles[0]=new ProfileDrawerItem().withName(userTitle).withIcon(R.mipmap.ic_launcher);
-/*
-        if(isLoggedin){
-            iProfiles[1] = new ProfileSettingDrawerItem().withName("Login").withIcon(FontAwesome.Icon.faw_sign_in).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                @Override
-                public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                    responseCallBack.onResponse(null,MENU_LOGIN);
-                    return false;
-                }
-            });
-        }else{
-            iProfiles[1] = new ProfileSettingDrawerItem().withName("Logout").withIcon(FontAwesome.Icon.faw_sign_in).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                @Override
-                public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                    responseCallBack.onResponse(null, MENU_LOGOUT);
-                    return false;
-                }
-            });
-        }
-*/
         return iProfiles;
     }
-    private MenuContent[] menuContentWithStart = new MenuContent[]{
-            new MenuContent("Home", FontAwesome.Icon.faw_home, MenuContent.PRIMARY_DRAWER_ITEM, MENU_HOME,0),
-            new MenuContent("Settings", FontAwesome.Icon.faw_cog, MenuContent.PRIMARY_DRAWER_ITEM, MENU_SETTINGS,0),
-            new MenuContent("Reset Application", FontAwesome.Icon.faw_repeat, MenuContent.PRIMARY_DRAWER_ITEM, MENU_RESET,0),
-            new MenuContent("Start Data Collection", FontAwesome.Icon.faw_play_circle_o, MenuContent.PRIMARY_DRAWER_ITEM, MENU_START_STOP,0),
-            new MenuContent("Work Annotation", FontAwesome.Icon.faw_briefcase, MenuContent.PRIMARY_DRAWER_ITEM, MENU_WORK_ANNOTATION,0),
-            new MenuContent("Check Update", FontAwesome.Icon.faw_refresh, MenuContent.PRIMARY_DRAWER_ITEM, MENU_UPDATE,Update.hasUpdate(MyApplication.getContext())),
-            new MenuContent("Help", FontAwesome.Icon.faw_question, MenuContent.PRIMARY_DRAWER_ITEM, MENU_HELP,0),
-            new MenuContent("Contact Us", FontAwesome.Icon.faw_envelope_o, MenuContent.PRIMARY_DRAWER_ITEM, MENU_CONTACT_US,0)
-    };
-    private MenuContent[] menuContentWithStop = new MenuContent[]{
-            new MenuContent("Home", FontAwesome.Icon.faw_home, MenuContent.PRIMARY_DRAWER_ITEM, MENU_HOME,0),
-            new MenuContent("Settings", FontAwesome.Icon.faw_cog, MenuContent.PRIMARY_DRAWER_ITEM, MENU_SETTINGS,0),
-            new MenuContent("Reset Application", FontAwesome.Icon.faw_repeat, MenuContent.PRIMARY_DRAWER_ITEM, MENU_RESET,0),
-            new MenuContent("Stop Data Collection", FontAwesome.Icon.faw_pause_circle_o, MenuContent.PRIMARY_DRAWER_ITEM, MENU_START_STOP,0),
-            new MenuContent("Workplace Annotation", FontAwesome.Icon.faw_briefcase, MenuContent.PRIMARY_DRAWER_ITEM, MENU_WORK_ANNOTATION,0),
-            new MenuContent("Check Update", FontAwesome.Icon.faw_refresh, MenuContent.PRIMARY_DRAWER_ITEM, MENU_UPDATE, Update.hasUpdate(MyApplication.getContext())),
-            new MenuContent("Help", FontAwesome.Icon.faw_question, MenuContent.PRIMARY_DRAWER_ITEM, MENU_HELP,0),
-            new MenuContent("Contact Us", FontAwesome.Icon.faw_envelope_o, MenuContent.PRIMARY_DRAWER_ITEM, MENU_CONTACT_US,0),
-    };
+    private static MenuContent[] getMenuContent(CMenu[] cMenu){
+        MenuContent[] menuContents=new MenuContent[cMenu.length];
+        for(int i=0;i<cMenu.length;i++){
+            if(cMenu[i].id.equalsIgnoreCase(MENU_HOME_STR))
+                menuContents[i]=new MenuContent(cMenu[i].title, FontAwesome.Icon.faw_home, MenuContent.PRIMARY_DRAWER_ITEM, MENU_HOME,0);
+            else if(cMenu[i].id.equalsIgnoreCase(MENU_SETTINGS_STR))
+                menuContents[i]=new MenuContent(cMenu[i].title, FontAwesome.Icon.faw_cog, MenuContent.PRIMARY_DRAWER_ITEM, MENU_SETTINGS,0);
+            else if(cMenu[i].id.equalsIgnoreCase(MENU_START_STOP_DATA_COLLECTION_STR))
+                menuContents[i]=new MenuContent("Start Data Collection", FontAwesome.Icon.faw_play_circle_o, MenuContent.PRIMARY_DRAWER_ITEM, MENU_START_STOP_DATA_COLLECTION,0);
+            else if(cMenu[i].id.equalsIgnoreCase(MENU_RESET_STR))
+                menuContents[i]=new MenuContent(cMenu[i].title, FontAwesome.Icon.faw_repeat, MenuContent.PRIMARY_DRAWER_ITEM, MENU_RESET,0);
+            else if(cMenu[i].id.equalsIgnoreCase(MENU_UPDATE_STR))
+                menuContents[i]=new MenuContent(cMenu[i].title, FontAwesome.Icon.faw_refresh, MenuContent.PRIMARY_DRAWER_ITEM, MENU_UPDATE,Update.hasUpdate(MyApplication.getContext()));
+            else if(cMenu[i].id.equalsIgnoreCase(MENU_HELP_STR))
+                menuContents[i]=new MenuContent(cMenu[i].title, FontAwesome.Icon.faw_question, MenuContent.PRIMARY_DRAWER_ITEM, MENU_HELP,0);
+            else if(cMenu[i].id.equalsIgnoreCase(MENU_CONTACT_US_STR))
+                menuContents[i]=new MenuContent(cMenu[i].title, FontAwesome.Icon.faw_envelope_o, MenuContent.PRIMARY_DRAWER_ITEM, MENU_CONTACT_US,0);
 
-    public IDrawerItem[] getMenuContent(boolean start, final ResponseCallBack responseCallBack) {
-        MenuContent[] menuContent;
-        if(start){
-            menuContent=menuContentWithStop;
-        }else{
-            menuContent=menuContentWithStart;
         }
-        return getMenuContent(menuContent, responseCallBack);
+        return menuContents;
     }
 
-
-    public static IDrawerItem[] getMenuContent(MenuContent[] menuContent, final ResponseCallBack responseCallBack) {
+    public static IDrawerItem[] getMenuContent(CMenu[] cMenu, final ResponseCallBack responseCallBack) {
+        MenuContent[] menuContent=getMenuContent(cMenu);
         IDrawerItem[] iDrawerItems = new IDrawerItem[menuContent.length];
         for (int i = 0; i < menuContent.length; i++) {
             switch (menuContent[i].type) {
@@ -156,5 +131,22 @@ public class MyMenu {
         return iDrawerItems;
     }
 
+    public static boolean hasMenuItem(CMenu[] menu, int menuUpdate) {
+        String id;
+        switch(menuUpdate){
+            case MENU_HOME: id=MENU_HOME_STR;break;
+            case MENU_SETTINGS: id=MENU_SETTINGS_STR;break;
+            case MENU_START_STOP_DATA_COLLECTION: id=MENU_START_STOP_DATA_COLLECTION_STR;break;
+            case MENU_RESET: id = MENU_RESET_STR;break;
+            case MENU_UPDATE: id = MENU_UPDATE_STR;break;
+            case MENU_HELP: id = MENU_HELP_STR;break;
+            case MENU_CONTACT_US: id=MENU_CONTACT_US_STR;break;
+            default: id="";
+        }
+        for(int i=0;i<menu.length;i++){
+            if(menu[i].id.equalsIgnoreCase(id)) return true;
+        }
+        return false;
+    }
 }
 

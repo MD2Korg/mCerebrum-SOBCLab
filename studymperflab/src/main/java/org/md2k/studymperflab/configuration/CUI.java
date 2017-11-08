@@ -27,5 +27,8 @@ package org.md2k.studymperflab.configuration;
  */
 
 public class CUI {
+    public CMenu[] menu;
     public CHomeScreen home_screen;
+    public CHelp help;
+    public CContact contact;
 }

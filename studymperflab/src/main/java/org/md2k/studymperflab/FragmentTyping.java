@@ -5,11 +5,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
+
+import org.md2k.datakitapi.DataKitAPI;
+import org.md2k.datakitapi.datatype.DataTypeString;
+import org.md2k.datakitapi.exception.DataKitException;
+import org.md2k.datakitapi.time.DateTime;
 
 import es.dmoral.toasty.Toasty;
 import mehdi.sakout.fancybuttons.FancyButton;
@@ -25,7 +31,10 @@ public class FragmentTyping extends Fragment {
     private BootstrapButton buttonFinish;
     private BootstrapButton buttonStart;
     private BootstrapButton buttonCancel;
-    private BootstrapButton buttonInterupt;
+    private BootstrapButton buttonInterrupt;
+    private BootstrapButton buttonAdd;
+    private EditText editTextNote;
+
     String typing_task;
     String typing_status;
 
@@ -45,22 +54,48 @@ public class FragmentTyping extends Fragment {
         buttonStart = (BootstrapButton) view.findViewById(R.id.btn_work_start);
         buttonFinish = (BootstrapButton) view.findViewById(R.id.btn_work_finish);
         buttonCancel = (BootstrapButton) view.findViewById(R.id.btn_work_cancel);
-        buttonInterupt = (BootstrapButton) view.findViewById(R.id.btn_work_interupt);
+        buttonInterrupt = (BootstrapButton) view.findViewById(R.id.btn_work_interupt);
         fancyButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activityMain.loadWorkType();
+                if(activityMain.started==true){
+                    Toasty.normal(getContext(), "Please stop the session first", Toast.LENGTH_SHORT).show();
+
+                }else
+                    activityMain.loadWorkType();
             }
         });
+        editTextNote = (EditText) view.findViewById(R.id.editView_notes);
+        buttonAdd = (BootstrapButton) view.findViewById(R.id.btn_work_add);
+
         prepareCancel(view);
         prepareStart(view);
         prepareFinish(view);
         prepareInterupt(view);
+        prepareNoteAdd();
+        enableButtons(true, false, false);
 
 
         //   radioGroupTypingTask = (RadioGroup) view.findViewById(R.id.radio_typing_task);
 
 
+    }
+    void prepareNoteAdd() {
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(editTextNote.getText()==null || editTextNote.getText().toString().length()==0) return;
+                String work_status= activityMain.workType+ ","+"note,"+editTextNote.getText().toString();
+                editTextNote.setText("");
+                try {
+                    DataKitAPI.getInstance(getActivity()).insert(((ActivityMain)getActivity()).dataSourceClient, new DataTypeString(DateTime.getDateTime(), work_status));
+                } catch (DataKitException e) {
+                }
+                Toasty.normal(getContext(), "Note added", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
     }
 
 
@@ -77,10 +112,11 @@ public class FragmentTyping extends Fragment {
                 //      handler.removeCallbacks(runnable);
                 //    handler.post(runnable);
                 if(check()==true) {
-                    String work_status = activityMain.workType + " " + typing_task + " " + typing_status + " " + "start";
-                    Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
-                }
+                    activityMain.started=true;
+                    String work_status = activityMain.workType + "," + typing_task + "," + typing_status + "," + "start";
+                    Toasty.normal(getContext(), work_status, Toast.LENGTH_SHORT).show();
                     enableButtons(false, true, false);
+                }
 
 
             }
@@ -89,26 +125,14 @@ public class FragmentTyping extends Fragment {
 
 
     void prepareInterupt(View view) {
-        buttonInterupt.setOnClickListener(new View.OnClickListener() {
+        buttonInterrupt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //   workAnnotation.work_activity_other=other_activity.getText().toString();
-                //  workAnnotation.work_context_other=other_context.getText().toString();
-                //  workAnnotation.operation="START";
-                //  workAnnotation.timestamp= DateTime.getDateTime();
-                //  insertData();
-                //  writeSharedPreference();
-                Toasty.normal(getContext(), "Interrupted...", Toast.LENGTH_SHORT).show();
-                //      handler.removeCallbacks(runnable);
-                //    handler.post(runnable);
-                if(check()==true) {
-                    String work_status = activityMain.workType + " " + typing_task + " " + typing_status + " " + "interrupted";
-                    Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
+                try {
+                    DataKitAPI.getInstance(getActivity()).insert(((ActivityMain)getActivity()).dataSourceClient, new DataTypeString(DateTime.getDateTime(), activityMain.workType+","+"interrupted"));
+                } catch (DataKitException e) {
                 }
-
-                    enableButtons(false, true, false);
-
-
+                Toasty.normal(getContext(), "Interrupted...", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -119,18 +143,16 @@ public class FragmentTyping extends Fragment {
 
             @Override
             public void onClick(View v) {
-                //      workAnnotation.operation="FINISH";
-                //      workAnnotation.timestamp=DateTime.getDateTime();
-                //     insertData();
-                //     writeSharedPreference();
-                //    insertData();
-                //    handler.removeCallbacks(runnable);
-                //    writeSharedPreference();
                 if(check()==true) {
-                    String work_status = activityMain.workType + " " + typing_task + " " + typing_status + " " + "finish";
-                    Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
-                }
+                    String work_status = activityMain.workType + "," + typing_task + "," + typing_status+ ",finish";
+                    activityMain.started=false;
+                    try {
+                        DataKitAPI.getInstance(getActivity()).insert(((ActivityMain)getActivity()).dataSourceClient, new DataTypeString(DateTime.getDateTime(), work_status));
+                    } catch (DataKitException e) {
+                    }
+                    Toasty.normal(getContext(), work_status, Toast.LENGTH_SHORT).show();
                     enableButtons(true, false, true);
+                }
                 //     showMessage("FINISHED");
             }
         });
@@ -146,10 +168,15 @@ public class FragmentTyping extends Fragment {
                 //   writeSharedPreference();
                 //   handler.removeCallbacks(runnable);
                 if(check()==true) {
-                    String work_status = activityMain.workType + " " + typing_task + " " + typing_status + " " + "cancel";
-                    Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
-                }
+                    activityMain.started=false;
+                    String work_status = activityMain.workType + "," + typing_task + "," + typing_status + "," + "cancel";
+                    try {
+                        DataKitAPI.getInstance(getActivity()).insert(((ActivityMain)getActivity()).dataSourceClient, new DataTypeString(DateTime.getDateTime(), work_status));
+                    } catch (DataKitException e) {
+                    }
+                    Toasty.normal(getContext(), work_status, Toast.LENGTH_SHORT).show();
                     enableButtons(true, false, true);
+                }
                 //     showMessage("CANCELLED");
             }
         });
@@ -163,8 +190,8 @@ public class FragmentTyping extends Fragment {
         buttonFinish.setShowOutline(!sp);
         buttonCancel.setEnabled(sp);
         buttonCancel.setShowOutline(!sp);
-        buttonInterupt.setEnabled(sp);
-        buttonInterupt.setShowOutline(!sp);
+        buttonInterrupt.setEnabled(sp);
+        buttonInterrupt.setShowOutline(!sp);
         //   other_activity.setEnabled(wt);
         //  other_context.setEnabled(wt);
         //  select_activity.setEnabled(wt);

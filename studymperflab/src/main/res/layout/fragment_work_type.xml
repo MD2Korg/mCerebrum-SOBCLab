@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Work Annotation"
+            android:text="Lab Session"
             android:textColor="@color/fontPrimanry"
             android:textSize="18sp" />
 
@@ -52,13 +52,17 @@
 
         </LinearLayout>
         <!-- list with check box-->
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="0.84"
+            android:weightSum="1"
+            >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_weight="0.8"
             android:orientation="vertical"
             android:weightSum="1">
 
@@ -182,6 +186,7 @@
                      />
             </RadioGroup>
         </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
 

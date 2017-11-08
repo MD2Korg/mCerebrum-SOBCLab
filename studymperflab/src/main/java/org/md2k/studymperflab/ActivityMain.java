@@ -1,72 +1,36 @@
 package org.md2k.studymperflab;
 
-import android.content.Intent;
-import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.api.services.youtube.model.ActivityContentDetails;
-
-import org.md2k.mcerebrum.commons.permission.Permission;
-import org.md2k.mcerebrum.commons.permission.PermissionCallback;
-import org.md2k.mcerebrum.commons.ui.data_quality.ActivityDataQuality;
-import org.md2k.mcerebrum.commons.ui.data_quality.ViewDataQuality;
-import org.md2k.studymperflab.configuration.CConfig;
-import org.md2k.studymperflab.configuration.CDataQuality;
-import org.md2k.studymperflab.configuration.ConfigManager;
+import org.md2k.datakitapi.source.datasource.DataSourceClient;
+import org.md2k.datakitapi.time.DateTime;
+import org.md2k.mcerebrum.system.update.Update;
 
 import es.dmoral.toasty.Toasty;
-import mehdi.sakout.fancybuttons.FancyButton;
+import rx.Observable;
+import rx.Observer;
+import rx.Subscription;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 
 public class ActivityMain extends AbstractActivityMenu {
+    public String workType;
+    boolean started = false;
     FragmentWorkType fragmentWorkType;
     FragmentTyping fragmentTyping;
     FragmentWorkTypeStart fragmentWorkTypeStart;
     FragmentManager manager;
     FragmentTransaction transaction;
-    FancyButton dq1;
-    FancyButton dq2;
-    FancyButton dq3;
-    FancyButton dq4;
-
-    public String workType;
-    CConfig cConfig;
+    Subscription subscriptionCheckUpdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-        Permission.requestPermission(this, new
-
-                PermissionCallback() {
-                    @Override
-                    public void OnResponse(boolean isGranted) {
-                        if (!isGranted) {
-                            Toasty.error(getApplicationContext(), "!PERMISSION DENIED !!! Could not continue...", Toast.LENGTH_SHORT).show();
-                            Log.d("abc","abc");
-
-                            finish();
-                        } else {
-                            loadDataQualityUI();
-
-//                            cConfig.ui.data_quality[0].);
-//                            updateUI();
-                            Log.d("abc", "abc");
-                        }
-                    }
-                });
-
-
-
-
-
-//        fragmentDataQuality.setArguments();
         fragmentWorkType=new FragmentWorkType();
         fragmentTyping=new FragmentTyping();
         fragmentWorkTypeStart=new FragmentWorkTypeStart();
@@ -76,11 +40,15 @@ public class ActivityMain extends AbstractActivityMenu {
         transaction=manager.beginTransaction();//create an instance of Fragment-transaction
 
 
-        transaction.add(R.id.container_lab, fragmentWorkType, "Fragment_Work_Type");
-        transaction.commit();
+        transaction.replace(R.id.container_lab, fragmentWorkType, "Fragment_Work_Type");
+        transaction.commitNowAllowingStateLoss();
+        start();
+
+//        loadDataQualityUI();
+//        fragmentDataQuality.setArguments();
     }
+/*
     public void loadDataQualityUI(){
-        cConfig = ConfigManager.read();
         TextView textView1= (TextView) findViewById(R.id.textview_data_quality_title_1);
         textView1.setText(cConfig.ui.home_screen.data_quality[0].title);
         dq1 = (FancyButton) findViewById(R.id.button_data_quality_1);
@@ -150,15 +118,13 @@ public class ActivityMain extends AbstractActivityMenu {
                 startActivity(intent);
             }
         });
-
-
-
     }
-    public void loadWorkType(){
-        transaction=manager.beginTransaction();//create an instance of Fragment-transaction
-        transaction.replace(R.id.container_lab, fragmentWorkType,"Fragment_Work_Type");
-        transaction.commit();
-    }
+*/
+public void loadWorkType(){
+    transaction=manager.beginTransaction();//create an instance of Fragment-transaction
+    transaction.replace(R.id.container_lab, fragmentWorkType,"Fragment_Work_Type");
+    transaction.commit();
+}
     public void loadTyping(){
         transaction=manager.beginTransaction();//create an instance of Fragment-transaction
         transaction.replace(R.id.container_lab, fragmentTyping,"Fragment_Typing");
@@ -168,5 +134,46 @@ public class ActivityMain extends AbstractActivityMenu {
         transaction=manager.beginTransaction();//create an instance of Fragment-transaction
         transaction.replace(R.id.container_lab, fragmentWorkTypeStart,"Fragment_Work_Type_Start");
         transaction.commit();
+    }
+    void start(){
+        startDataCollection();
+        subscriptionCheckUpdate = Observable.just(true).subscribeOn(Schedulers.newThread())
+                .observeOn(Schedulers.newThread())
+                .flatMap(new Func1<Boolean, Observable<Boolean>>() {
+                    @Override
+                    public Observable<Boolean> call(Boolean aBoolean) {
+                        return Update.checkUpdate(ActivityMain.this);
+                    }
+                }).subscribe(new Observer<Boolean>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d("abc","abeeee");
+                    }
+
+                    @Override
+                    public void onNext(Boolean aBoolean) {
+                    }
+                });
+        if (getIntent().getBooleanExtra("background", false))
+            finish();
+
+    }
+    public void onDestroy() {
+        if (subscriptionCheckUpdate != null && !subscriptionCheckUpdate.isUnsubscribed())
+            subscriptionCheckUpdate.unsubscribe();
+        super.onDestroy();
+    }
+    @Override
+    public void onBackPressed() {
+        Log.d("CDA", "onBackPressed Called");
+        if(started){
+            Toasty.normal(this, "Please stop the session first", Toast.LENGTH_SHORT).show();
+        }
+        else
+            super.onBackPressed();
     }
 }

@@ -1,12 +1,4 @@
-package org.md2k.studymperflab;
-
-import android.app.Application;
-import android.content.Context;
-
-import com.beardedhen.androidbootstrap.TypefaceProvider;
-
-import org.md2k.mcerebrum.core.access.MCerebrum;
-
+package org.md2k.studymperflab.configuration;
 /*
  * Copyright (c) 2016, The University of Memphis, MD2K Center
  * - Syed Monowar Hossain <monowar.hossain@gmail.com>
@@ -34,16 +26,25 @@ import org.md2k.mcerebrum.core.access.MCerebrum;
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-public class MyApplication extends Application {
-    static Context context;
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        context=getApplicationContext();
-        MCerebrum.init(getApplicationContext(), MyMCerebrumInit.class);
-        TypefaceProvider.registerDefaultIconSets();
+public class CContact {
+    private String name;
+    private String phone;
+    private String email;
+    private String address;
+
+    public String getName() {
+        return name;
     }
-    public static Context getContext(){
-        return context;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getAddress() {
+        return address;
     }
 }

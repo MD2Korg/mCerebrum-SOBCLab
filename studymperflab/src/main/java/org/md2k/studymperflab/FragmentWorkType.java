@@ -27,16 +27,7 @@ public class FragmentWorkType extends Fragment{
     FancyButton fancyButtonGo;
     RadioGroup radioGroup;
     ActivityMain activityMain;
-/*
-    String[] workTypes=new String[]{
-            "Baseline rest period",
-            "Typing task"
-    };
-*/
 
-    private BootstrapButton buttonStop;
-    private BootstrapButton buttonStart;
-    private BootstrapButton buttonCancel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

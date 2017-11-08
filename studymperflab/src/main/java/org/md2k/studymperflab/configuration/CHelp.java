@@ -1,4 +1,4 @@
-package org.md2k.studymperflab;
+package org.md2k.studymperflab.configuration;
 /*
  * Copyright (c) 2016, The University of Memphis, MD2K Center
  * - Syed Monowar Hossain <monowar.hossain@gmail.com>
@@ -26,9 +26,10 @@ package org.md2k.studymperflab;
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+public class CHelp {
+    private String url;
 
-import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-
-public interface ResponseCallBack {
-    void onResponse(IDrawerItem drawerItem, int responseId);
+    public String getUrl() {
+        return url;
+    }
 }

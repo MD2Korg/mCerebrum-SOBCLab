@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Work Annotation"
+            android:text="Typing Session"
             android:textColor="@color/fontPrimanry"
             android:textSize="18sp" />
 
@@ -53,19 +53,19 @@
         </LinearLayout>
         <!-- list with check box-->
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="10dp"
-    android:layout_weight="0.32"
-    android:orientation="vertical"
-    android:weightSum="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.34"
+            android:orientation="vertical"
+            android:weightSum="1">
 
-    <RadioGroup
-        android:id="@+id/radio_typing_task"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+            <RadioGroup
+                android:id="@+id/radio_typing_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
                 <RadioButton
                     android:id="@+id/radio_typing_neutral_text"
@@ -99,9 +99,9 @@
                     android:text="Evaluation Text"
                     android:textColor="#ffff" />
 
-    </RadioGroup>
+            </RadioGroup>
 
-</LinearLayout>
+        </LinearLayout>
 
         <!--select typing status  -->
         <LinearLayout
@@ -178,26 +178,27 @@
                 app:bootstrapText="Notes: " />
 
             <EditText
-                android:id="@+id/textView_notes"
+                android:id="@+id/editView_notes"
                 android:layout_width="0dp"
-                android:textColor="#FFFF"
                 android:layout_height="match_parent"
                 android:layout_weight="0.7"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="#FFFF" />
 
             <com.beardedhen.androidbootstrap.BootstrapButton
                 android:id="@+id/btn_work_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                app:bootstrapBrand="success"
                 android:layout_weight="0.05"
+                app:bootstrapBrand="success"
                 app:bootstrapText="{fa_plus} Add"
                 app:buttonMode="regular"
                 app:roundedCorners="true"
                 app:showOutline="false" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -207,9 +208,9 @@
             <com.beardedhen.androidbootstrap.BootstrapButton
                 android:id="@+id/btn_work_interupt"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="45dp"
                 android:layout_marginRight="35dp"
-                android:layout_height="wrap_content"
 
                 app:bootstrapBrand="warning"
                 app:bootstrapSize="md"
