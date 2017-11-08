@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backGroundDark"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:background="@color/tealsecondary">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Lab Session"
+            android:textColor="@color/fontPrimanry"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.1">
+
+        <com.beardedhen.androidbootstrap.AwesomeTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:textSize="16dp"
+            app:bootstrapBrand="success"
+            app:bootstrapText="Select Session" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_weight="0.12"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <RadioGroup
+            android:id="@+id/radio_typing_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radio_typing_status_prep"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:buttonTint="@color/tealsecondary"
+                android:text="Session 1"
+                android:textColor="#ffff" />
+
+            <RadioButton
+                android:id="@+id/radio_typing_status_typing"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:buttonTint="@color/tealsecondary"
+                android:text="Session 2"
+                android:textColor="#ffff" />
+        </RadioGroup>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="32dp"
+        android:layout_weight="0.2"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <com.beardedhen.androidbootstrap.AwesomeTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            app:bootstrapBrand="success"
+            android:textSize="15dp"
+            android:layout_marginTop="15dp"
+            app:bootstrapText="Notes: "
+
+            />
+        <EditText
+            android:id="@+id/textView_notes"
+            android:layout_width="0dp"
+            android:layout_marginRight="20dp"
+            android:singleLine="true"
+            android:textColor="#ffff"
+            android:textColorHint="#ffff"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"/>
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/btn_work_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:bootstrapBrand="success"
+            android:layout_weight="0.05"
+            app:bootstrapText="{fa_plus} Add"
+            app:buttonMode="regular"
+            app:roundedCorners="true"
+            app:showOutline="false" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="30dp"
+        android:layout_weight="0.1"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <!-- start button -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33">
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/btn_work_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bootstrapBrand="success"
+                app:bootstrapText="{fa_play} Start"
+                app:buttonMode="regular"
+                app:roundedCorners="true"
+                app:showOutline="false" />
+        </LinearLayout>
+        <!--stop button -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33">
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/btn_work_finish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bootstrapBrand="success"
+                app:bootstrapSize="md"
+                app:bootstrapText="{fa_stop} Finish"
+                app:buttonMode="regular"
+                app:roundedCorners="true"
+                app:showOutline="false" />
+
+        </LinearLayout>
+        <!--cancel button -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33">
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/btn_work_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                app:bootstrapBrand="success"
+                app:bootstrapSize="md"
+                app:bootstrapText="{fa_ban} Cancel"
+                app:buttonMode="regular"
+                app:roundedCorners="true"
+                app:showOutline="false" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
