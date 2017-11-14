@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import org.md2k.datakitapi.source.datasource.DataSourceClient;
 import org.md2k.datakitapi.time.DateTime;
+import org.md2k.mcerebrum.core.access.studyinfo.StudyCP;
 import org.md2k.mcerebrum.system.update.Update;
 
 import es.dmoral.toasty.Toasty;
@@ -24,6 +25,7 @@ public class ActivityMain extends AbstractActivityMenu {
     FragmentWorkType fragmentWorkType;
     FragmentTyping fragmentTyping;
     FragmentWorkTypeStart fragmentWorkTypeStart;
+    FragmentSession fragmentSession;
     FragmentManager manager;
     FragmentTransaction transaction;
     Subscription subscriptionCheckUpdate;
@@ -34,13 +36,15 @@ public class ActivityMain extends AbstractActivityMenu {
         fragmentWorkType=new FragmentWorkType();
         fragmentTyping=new FragmentTyping();
         fragmentWorkTypeStart=new FragmentWorkTypeStart();
+        fragmentSession = new FragmentSession();
 
         manager=getSupportFragmentManager();//create an instance of fragment manager
 
         transaction=manager.beginTransaction();//create an instance of Fragment-transaction
-
-
-        transaction.replace(R.id.container_lab, fragmentWorkType, "Fragment_Work_Type");
+        if(StudyCP.getTitle(this).endsWith("Minnesota"))
+            transaction.replace(R.id.container_lab, fragmentWorkType, "Fragment_Work_Type");
+        else
+            transaction.replace(R.id.container_lab, fragmentSession, "Fragment_Session");
         transaction.commitNowAllowingStateLoss();
         start();
 

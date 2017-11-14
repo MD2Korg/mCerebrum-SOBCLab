@@ -5,10 +5,18 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.AwesomeTextView;
 import com.beardedhen.androidbootstrap.BootstrapButton;
+
+import org.md2k.datakitapi.DataKitAPI;
+import org.md2k.datakitapi.datatype.DataTypeString;
+import org.md2k.datakitapi.exception.DataKitException;
+import org.md2k.datakitapi.time.DateTime;
 
 import es.dmoral.toasty.Toasty;
 import mehdi.sakout.fancybuttons.FancyButton;
@@ -24,6 +32,9 @@ public class FragmentSession extends Fragment{
     private BootstrapButton buttonFinish;
     private BootstrapButton buttonStart;
     private BootstrapButton buttonCancel;
+    RadioGroup radioGroup;
+    private EditText editTextNote;
+    private BootstrapButton buttonAdd;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,8 +47,12 @@ public class FragmentSession extends Fragment{
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         activityMain= (ActivityMain) getActivity();
+        radioGroup = (RadioGroup) view.findViewById(R.id.radio_work_type);
+
         fancyButtonBack = (FancyButton) view.findViewById(R.id.button_back);
         textViewWorkType= (AwesomeTextView) view.findViewById(R.id.textview_work_type);
+        editTextNote = (EditText) view.findViewById(R.id.textView_notes);
+
 //        textViewWorkType.setText(activityMain.workType);
 
 
@@ -52,32 +67,55 @@ public class FragmentSession extends Fragment{
         buttonStart = (BootstrapButton) view.findViewById(R.id.btn_work_start);
         buttonFinish = (BootstrapButton) view.findViewById(R.id.btn_work_finish);
         buttonCancel = (BootstrapButton) view.findViewById(R.id.btn_work_cancel);
+        buttonAdd = (BootstrapButton) view.findViewById(R.id.btn_work_add);
 
         prepareCancel(view);
         prepareStart(view);
         prepareFinish(view);
+        prepareNoteAdd();
+        enableButtons(true,false, false);
 
 
     }
+    void prepareNoteAdd() {
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(editTextNote.getText()==null || editTextNote.getText().toString().length()==0) return;
+                String work_status= activityMain.workType+ ","+"note,"+editTextNote.getText().toString();
+                editTextNote.setText("");
+                try {
+                    DataKitAPI.getInstance(getActivity()).insert(((ActivityMain)getActivity()).dataSourceClient, new DataTypeString(DateTime.getDateTime(), work_status));
+                } catch (DataKitException e) {
+                }
+                Toasty.normal(getContext(), work_status+" added", Toast.LENGTH_SHORT).show();
 
 
-    void prepareStart(View view) {
+            }
+        });
+    }
+
+
+    void prepareStart(final View view) {
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //   workAnnotation.work_activity_other=other_activity.getText().toString();
-              //  workAnnotation.work_context_other=other_context.getText().toString();
-              //  workAnnotation.operation="START";
-              //  workAnnotation.timestamp= DateTime.getDateTime();
-              //  insertData();
-              //  writeSharedPreference();
-          //      handler.removeCallbacks(runnable);
-            //    handler.post(runnable);
-                String work_status= activityMain.workType+ " "+"start";
-                Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
-                enableButtons(false, true, false);
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                if(selectedId==-1){
+                    Toasty.error(getContext(), "Please select a session to continue...", Toast.LENGTH_SHORT).show();
+                }else {
+                    RadioButton r= (RadioButton) view.findViewById(selectedId);
+                    activityMain.workType=r.getText().toString();
 
-
+                    activityMain.started = true;
+                    String work_status = activityMain.workType + "," + "start";
+                    try {
+                        DataKitAPI.getInstance(getActivity()).insert(((ActivityMain) getActivity()).dataSourceClient, new DataTypeString(DateTime.getDateTime(), work_status));
+                    } catch (DataKitException e) {
+                    }
+                    Toasty.normal(getContext(), work_status, Toast.LENGTH_SHORT).show();
+                    enableButtons(false, true, false);
+                }
             }
         });
     }
@@ -95,8 +133,13 @@ public class FragmentSession extends Fragment{
             //    insertData();
             //    handler.removeCallbacks(runnable);
             //    writeSharedPreference();
-                String work_status= activityMain.workType+ " "+"stop";
-                Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
+                String work_status= activityMain.workType+ ","+"stop";
+                activityMain.started=false;
+                try {
+                    DataKitAPI.getInstance(getActivity()).insert(((ActivityMain)getActivity()).dataSourceClient, new DataTypeString(DateTime.getDateTime(), work_status));
+                } catch (DataKitException e) {
+                }
+                Toasty.normal(getContext(), work_status, Toast.LENGTH_SHORT).show();
                 enableButtons(true, false, true);
            //     showMessage("FINISHED");
             }
@@ -112,8 +155,13 @@ public class FragmentSession extends Fragment{
              //   insertData();
              //   writeSharedPreference();
              //   handler.removeCallbacks(runnable);
-                String work_status= activityMain.workType+ " "+"Cancel";
-                Toasty.error(getContext(), work_status, Toast.LENGTH_SHORT).show();
+                activityMain.started=false;
+                String work_status= activityMain.workType+ ","+"cancel";
+                try {
+                    DataKitAPI.getInstance(getActivity()).insert(((ActivityMain)getActivity()).dataSourceClient, new DataTypeString(DateTime.getDateTime(), work_status));
+                } catch (DataKitException e) {
+                }
+                Toasty.normal(getContext(), work_status, Toast.LENGTH_SHORT).show();
                 enableButtons(true, false, true);
            //     showMessage("CANCELLED");
             }
