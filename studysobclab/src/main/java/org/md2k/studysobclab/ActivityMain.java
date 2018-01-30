@@ -39,10 +39,10 @@ public class ActivityMain extends AbstractActivityMenu {
         manager=getSupportFragmentManager();//create an instance of fragment manager
 
         transaction=manager.beginTransaction();//create an instance of Fragment-transaction
-        if(StudyCP.getTitle(this).endsWith("Minnesota"))
+      //  if(StudyCP.getTitle(this).endsWith("Minnesota"))
             transaction.replace(R.id.container_lab, fragmentWorkType, "Fragment_Work_Type");
-        else
-            transaction.replace(R.id.container_lab, fragmentSession, "Fragment_Session");
+     //   else
+       //     transaction.replace(R.id.container_lab, fragmentSession, "Fragment_Session");
         transaction.commitNowAllowingStateLoss();
         start();
 
