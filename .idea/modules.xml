@@ -5,8 +5,10 @@
       <module fileurl="file://$PROJECT_DIR$/../mCerebrum-Library/commons/commons.iml" filepath="$PROJECT_DIR$/../mCerebrum-Library/commons/commons.iml" />
       <module fileurl="file://$PROJECT_DIR$/../mCerebrum-Library/core/core.iml" filepath="$PROJECT_DIR$/../mCerebrum-Library/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/../mCerebrum-DataKitAPI/datakitapi/datakitapi.iml" filepath="$PROJECT_DIR$/../mCerebrum-DataKitAPI/datakitapi/datakitapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mCerebrum-SOBCLab.iml" filepath="$PROJECT_DIR$/mCerebrum-SOBCLab.iml" />
       <module fileurl="file://$PROJECT_DIR$/mCerebrum-StudymPerfLab.iml" filepath="$PROJECT_DIR$/mCerebrum-StudymPerfLab.iml" />
       <module fileurl="file://$PROJECT_DIR$/studymperflab/studymperflab.iml" filepath="$PROJECT_DIR$/studymperflab/studymperflab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/studysobclab/studysobclab.iml" filepath="$PROJECT_DIR$/studysobclab/studysobclab.iml" />
       <module fileurl="file://$PROJECT_DIR$/../mCerebrum-Library/system/system.iml" filepath="$PROJECT_DIR$/../mCerebrum-Library/system/system.iml" />
     </modules>
   </component>

@@ -1,4 +1,4 @@
-include ':studymperflab'
+include ':studysobclab'
 include ':commons', ":core", ":system"
 include ':datakitapi'
 project(':commons').projectDir=new File('../mCerebrum-Library/commons')

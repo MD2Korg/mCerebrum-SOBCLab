@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorbackground"
+    android:orientation="vertical"
+    android:weightSum="1">
+    <!-- work annotation title-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:background="@color/tealsecondary">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Lab Session"
+            android:textColor="@color/fontPrimanry"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.8"
+        android:background="@color/backGroundDark"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <!--select work type  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.1">
+
+            <com.beardedhen.androidbootstrap.AwesomeTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.5"
+                android:textSize="16dp"
+                app:bootstrapBrand="success"
+                app:bootstrapText="Select work Type" />
+
+
+        </LinearLayout>
+        <!-- list with check box-->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.84"
+            android:weightSum="1"
+            >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <RadioGroup
+                android:id="@+id/radio_work_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radio_baseline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Baseline rest period"
+                    android:buttonTint="@color/tealsecondary"
+                    android:textColor="#ffff" />
+
+                <RadioButton
+                    android:id="@+id/radio_speaking_instruction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Speaking task instructions"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_prepare_speaking_task"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Participant prepares for speaking task"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_delivery_speech"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Delivery of speech"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_arithmetic_instruction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Arithmetic instructions"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_arithmetic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Arithmetic"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_pressor_instruction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Cold pressor instructions"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_pressor_hand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Cold Pressor"
+                    android:textColor="#ffff"
+                     />
+
+
+                <RadioButton
+                    android:id="@+id/radio_walk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/tealsecondary"
+                    
+                    android:text="Walk"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_drink_water"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/tealsecondary"
+                    android:text="Participant drinks water"
+                    android:textColor="#ffff"
+                     />
+
+                <RadioButton
+                    android:id="@+id/radio_recovery1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/tealsecondary"
+                    android:text="Recovery 1"
+                    android:textColor="#ffff"
+                    />
+
+                <RadioButton
+                    android:id="@+id/radio_recovery2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/tealsecondary"
+                    android:text="Recovery 2"
+                    android:textColor="#ffff"
+                    />
+
+                <RadioButton
+                    android:id="@+id/radio_second_request_water"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/tealsecondary"
+                    android:text="Second request for water"
+                    android:textColor="#ffff"
+                    />
+
+                <RadioButton
+                    android:id="@+id/radio_bathroom_break"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/tealsecondary"
+                    android:text="Request for bathroom break"
+                    android:textColor="#ffff"
+                    />
+            </RadioGroup>
+        </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+    <!--close button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.1">
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/button_go"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            fancy:fb_borderColor="@color/tealsecondary"
+            fancy:fb_borderWidth="0dp"
+            fancy:fb_defaultColor="@color/backGroundDark"
+            fancy:fb_fontIconResource="&#xf0a9;"
+            fancy:fb_radius="10dp"
+            fancy:fb_text="Go"
+            fancy:fb_textColor="#ff00"
+            fancy:fb_textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>
